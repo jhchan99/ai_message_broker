@@ -7,31 +7,27 @@ CS 452 - Natural language interface to a database using GPT.
 ## Setup
 
 1. **Create a virtual environment** (recommended on Linux/WSL to avoid externally-managed-environment errors)
-   ```bash
+  ```bash
    # On WSL/Debian/Ubuntu, install venv first if needed:
    sudo apt install python3.12-venv
 
    python3 -m venv venv
    source venv/bin/activate   # Linux/WSL
    # or: venv\Scripts\activate   # Windows
-   ```
-
+  ```
 2. **Install dependencies**
-   ```bash
+  ```bash
    pip install -r requirements.txt
-   ```
-
+  ```
 3. **Configure OpenAI**
-   - Copy `config.json.example` to `config.json`
-   - Add your OpenAI API key to `config.json` (never commit this file!)
-
+  - Copy `config.json.example` to `config.json`
+  - Add your OpenAI API key to `config.json`
 4. **Initialize database**
-   - Run `setup.sql` and `setupData.sql` (or use the app which does this automatically)
-
+  - Run `setup.sql` and `setupData.sql` (or use the app which does this automatically)
 5. **Run the app**
-   ```bash
+  ```bash
    python db_bot.py
-   ```
+  ```
 
 ## Project Structure
 
@@ -42,4 +38,4 @@ CS 452 - Natural language interface to a database using GPT.
 
 ## Paper Reference
 
-Read the prompting strategies: https://arxiv.org/abs/2305.11853
+Read the prompting strategies: [https://arxiv.org/abs/2305.11853](https://arxiv.org/abs/2305.11853)

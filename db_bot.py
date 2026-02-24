@@ -16,6 +16,7 @@ DB_PATH = os.path.join(FDIR, "aidb.sqlite")
 SETUP_SQL = os.path.join(FDIR, "setup.sql")
 SETUP_DATA_SQL = os.path.join(FDIR, "setupData.sql")
 CONFIG_PATH = os.path.join(FDIR, "config.json")
+RESPONSES_DIR = os.path.join(FDIR, "response")
 
 SQL_ONLY_REQUEST = (
     " Give me a sqlite select statement that answers the question. "
@@ -132,6 +133,7 @@ def main():
     print("Natural Language SQL Bot - Chatbot Memory Broker")
     con, cur = init_db()
     print("Database initialized.")
+    os.makedirs(RESPONSES_DIR, exist_ok=True)
 
     with open(SETUP_SQL) as f:
         setup_sql = f.read()
@@ -170,7 +172,7 @@ def main():
             "prompt_prefix": strategy_prompt,
             "questionResults": results,
         }
-        out_path = os.path.join(FDIR, f"response_{strategy_name}_{int(time())}.json")
+        out_path = os.path.join(RESPONSES_DIR, f"response_{strategy_name}_{int(time())}.json")
         with open(out_path, "w") as f:
             json.dump(out, f, indent=2)
         print(f"\nSaved to {out_path}")
